@@ -169,9 +169,9 @@ function greeting(first, last, consumecb){
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
 function CuboidMaker(attributes){
-  this.length = attributes.length;
-  this.width = attributes.width;
-  this.height = attributes.height;
+  this.length = attributes.length,
+  this.width = attributes.width,
+  this.height = attributes.height
 };
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -195,16 +195,16 @@ function CuboidMaker(attributes){
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-    function cuboid(attributes){
+    // function cuboid(attributes){
       // cuboid.prototype = Object.create(CuboidMaker.prototype);
-      CuboidMaker.call(this, attributes);
-      this.length = attributes.length;
-      this.width = attributes.width;
-      this.height = attributes.height;
-    }
-    cuboid.prototype = Object.create(CuboidMaker.prototype);
+      // CuboidMaker.call(this, attributes);
+      // this.length = attributes.length;
+      // this.width = attributes.width;
+      // this.height = attributes.height;
+    // }
+    // cuboid.prototype = Object.create(CuboidMaker.prototype);
 
-  const myCuboid = new cuboid({
+  const cuboid = new CuboidMaker({
     length: 4,
     width: 5,
     height: 5
@@ -213,19 +213,46 @@ function CuboidMaker(attributes){
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+// console.log('test', cuboid.volume()); // 100
+// console.log('test', cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
-class CuboidMakerTwo{
 
-}
+class CuboidMakerTwo extends CuboidMaker{
+  // constructor(attributes){
+  //   super(attributes);
+  //   this.length = attributes.length;
+  //   this.width = attributes.width;
+  //   this.height = attributes.height;
+  //methods
+  volume(){
+    return this.length * this.width * this.height
+  }
+  surfaceArea(){
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)
+  }
+  }
+  const cuboidTwo = new CuboidMaker({
+    length: 4,
+    width: 5,
+    height: 5
+  });
 
+  // class Pet{
+//   constructor(attributes){
+//     this.name = attributes.name;
+//     this.location = attributes.location;
+//     this.phrase = attributes.phrase;
+//   }// methods go here 
+//   speak(){
+//     return `${this.name} says ${this.phrase}`;
+//   }
+// }
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
+// console.log('test', cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
 
 
