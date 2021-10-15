@@ -61,17 +61,15 @@ const zooAnimals = [
   */
 
   function animalNames(array){
-      let scientificName = [];
-      let name = [];
-      let displayNames = [];
-      array.forEach(function(item){
-      scientificName.push(item.scientific_name);
-      // name.push(item.animal_name);
-      // displayNames = [name + scientificName]
-      });
-      // return `name: ${displayNames.name}, scientific: ${displayNames.scientificName}`
+    let displayNames = [{}];
+    array.forEach(function(item){
+      displayNames.push(item['animal_name'].name + item['scientific_name'].scientific);
+    });
+    return `name: ${displayNames.name}, scientific: ${displayNames.scientific}`
   }
-
+  // Object.keys(array).forEach(item =>  
+  //   displayName.push(array[item].animal_name + array[item].scientific_name)
+  // ));
     console.log('request1:', animalNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -82,7 +80,7 @@ const zooAnimals = [
 
   function lowerCaseNames(array){
       array.map(function(item){
-      return item.animal_name.toLowerCase();
+        return ['animal_name'].toLowerCase();
     }
     )};
   console.log('request2:', lowerCaseNames(zooAnimals));
