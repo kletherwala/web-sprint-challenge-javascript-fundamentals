@@ -79,11 +79,11 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(array){
-      array.map(function(item){
-        return ['animal_name'].toLowerCase();
+      // array.map(function(item){
+      //   return item['animal_name'].toLowerCase();
     }
-    )};
-  console.log('request2:', lowerCaseNames(zooAnimals));
+    // )};
+  // console.log('request2:', lowerCaseNames(zooAnimals));
 
   // const lowerCaseStates = cityData.map(function(item){
 //   return item.state.toLowerCase();
